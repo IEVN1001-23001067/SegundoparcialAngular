@@ -3,144 +3,231 @@
 <br>
 <br>
 
-<div class="max-w-4xl mx-auto p-6 bg-amber-50 rounded-sm shadow-md border border-amber-200 grid grid-cols-1 md:grid-cols-2 gap-8">
 
-  <div>
-    <h2 class="text-xl font-bold text-amber-950 mb-6 text-center border-b border-amber-200 pb-2">
-      Datos Personales
-    </h2>
+<div class="max-w-4xl mx-auto p-6 bg-amber-50 rounded-sm shadow-md border border-amber-200" *ngIf="vistaActual === 'formulario'">
 
-    <form [formGroup]="formulario" (ngSubmit)="muestraAlumnos()">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    
+   
+    <div>
+      <h2 class="text-xl font-bold text-amber-950 mb-6 text-center border-b border-amber-200 pb-2">
+        Datos Personales
+      </h2>
 
-      <div class="mb-4">
-        <label for="nombre" class="block mb-1 text-sm font-medium text-amber-950">
-          Nombre:
-        </label>
-        <input
-          type="text"
-          id="nombre"
-          formControlName="nombre"
-          class="bg-white border border-amber-200 text-amber-900 text-sm rounded-sm focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5"
-          placeholder="Nombre"
-          required
-        >
-      </div>
+      <form [formGroup]="formulario" (ngSubmit)="muestraAlumnos()">
 
+        <div class="mb-4">
+          <label for="nombre" class="block mb-1 text-sm font-medium text-amber-950">
+            Nombre:
+          </label>
+          <input
+            type="text"
+            id="nombre"
+            formControlName="nombre"
+            class="bg-white border border-amber-200 text-amber-900 text-sm rounded-sm focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5"
+            placeholder="Nombre"
+            required
+          >
+        </div>
 
-      <div class="mb-4">
-        <label for="apaterno" class="block mb-1 text-sm font-medium text-amber-950">
-          Apellido Parteno:
-        </label>
-        <input
-          type="text"
-          id="apaterno"
-          formControlName="apaterno"
-          class="bg-white border border-amber-200 text-amber-900 text-sm rounded-sm focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5"
-          placeholder="Apaterno"
-          required
-        >
-      </div>
+        <div class="mb-4">
+          <label for="apaterno" class="block mb-1 text-sm font-medium text-amber-950">
+            Apellido Paterno:
+          </label>
+          <input
+            type="text"
+            id="apaterno"
+            formControlName="apaterno"
+            class="bg-white border border-amber-200 text-amber-900 text-sm rounded-sm focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5"
+            placeholder="Apaterno"
+            required
+          >
+        </div>
 
+        <div class="mb-4">
+          <label for="amaterno" class="block mb-1 text-sm font-medium text-amber-950">
+            Apellido Materno:
+          </label>
+          <input
+            type="text"
+            id="amaterno"
+            formControlName="amaterno"
+            class="bg-white border border-amber-200 text-amber-900 text-sm rounded-sm focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5"
+            placeholder="Amaterno"
+            required
+          >
+        </div>
 
-      <div class="mb-4">
-        <label for="amaterno" class="block mb-1 text-sm font-medium text-amber-950">
-          Apellido Materno:
-        </label>
-        <input
-          type="text"
-          id="amaterno"
-          formControlName="amaterno"
-          class="bg-white border border-amber-200 text-amber-900 text-sm rounded-sm focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5"
-          placeholder="Amaterno"
-          required
-        >
-      </div>
+        <div class="mb-5">
+          <label class="block mb-2 text-sm font-bold text-amber-950 text-center">
+            Fecha de Nacimiento:
+          </label>
+          <div class="grid grid-cols-3 gap-3">
+            <div>
+              <label for="dia" class="block mb-1 text-xs text-amber-800 text-center">Día:</label>
+              <input
+                type="number"
+                id="dia"
+                formControlName="dia"
+                class="bg-white border border-amber-200 text-amber-900 text-sm rounded-sm block w-full p-2 text-center focus:ring-amber-500 focus:border-amber-500"
+                placeholder="Día"
+              >
+            </div>
+            <div>
+              <label for="mes" class="block mb-1 text-xs text-amber-800 text-center">Mes:</label>
+              <input
+                type="number"
+                id="mes"
+                formControlName="mes"
+                class="bg-white border border-amber-200 text-amber-900 text-sm rounded-sm block w-full p-2 text-center focus:ring-amber-500 focus:border-amber-500"
+                placeholder="Mes"
+              >
+            </div>
+            <div>
+              <label for="anio" class="block mb-1 text-xs text-amber-800 text-center">Año:</label>
+              <input
+                type="number"
+                id="anio"
+                formControlName="anio"
+                class="bg-white border border-amber-200 text-amber-900 text-sm rounded-sm block w-full p-2 text-center focus:ring-amber-500 focus:border-amber-500"
+                placeholder="Año"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <label class="block mb-2 text-sm font-medium text-amber-950">Sexo:</label>
+          <div class="flex items-center space-x-6">
+            <label class="flex items-center text-sm text-amber-900 cursor-pointer">
+              <input type="radio" value="Masculino" formControlName="sexo" class="w-4 h-4 text-amber-700 bg-white border-amber-300 focus:ring-amber-500 mr-2">
+              Masculino
+            </label>
+            <label class="flex items-center text-sm text-amber-900 cursor-pointer">
+              <input type="radio" value="Femenino" formControlName="sexo" class="w-4 h-4 text-amber-700 bg-white border-amber-300 focus:ring-amber-500 mr-2">
+              Femenino
+            </label>
+          </div>
+        </div>
+
+       
+        <div class="flex flex-wrap justify-center gap-2 mt-6">
+          <button
+            type="submit"
+            class="text-white bg-amber-700 border-2 border-amber-700 hover:bg-amber-800 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-sm text-sm px-4 py-2.5 shadow-sm"
+          >
+            Registrar e Imprimir
+          </button>
+          
+          <button
+            type="button"
+            (click)="cargarPersonas()"
+            class="text-amber-900 bg-amber-200 border-2 border-amber-300 hover:bg-amber-300 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-sm text-sm px-3 py-2.5 shadow-sm"
+          >
+            Cargar
+          </button>
+
+        
+          <button
+            type="button"
+            (click)="vistaActual = 'registros'"
+            class="text-white bg-amber-900 border-2 border-amber-900 hover:bg-amber-950 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-sm text-sm px-3 py-2.5 shadow-sm"
+          >
+            Ver Registros
+          </button>
+        </div>
+
+      </form>
+    </div>
 
   
-      <div class="mb-5">
-        <label class="block mb-2 text-sm font-bold text-amber-950 text-center">
-          Fecha de Nacimiento:
-        </label>
-        <div class="grid grid-cols-3 gap-3">
-          <div>
-            <label for="dia" class="block mb-1 text-xs text-amber-800 text-center">Día:</label>
-            <input
-              type="number"
-              id="dia"
-              formControlName="dia"
-              class="bg-white border border-amber-200 text-amber-900 text-sm rounded-sm block w-full p-2 text-center focus:ring-amber-500 focus:border-amber-500"
-              placeholder="Día"
-            >
-          </div>
-          <div>
-            <label for="mes" class="block mb-1 text-xs text-amber-800 text-center">Mes:</label>
-            <input
-              type="number"
-              id="mes"
-              formControlName="mes"
-              class="bg-white border border-amber-200 text-amber-900 text-sm rounded-sm block w-full p-2 text-center focus:ring-amber-500 focus:border-amber-500"
-              placeholder="Mes"
-            >
-          </div>
-          <div>
-            <label for="anio" class="block mb-1 text-xs text-amber-800 text-center">Año:</label>
-            <input
-              type="number"
-              id="anio"
-              formControlName="anio"
-              class="bg-white border border-amber-200 text-amber-900 text-sm rounded-sm block w-full p-2 text-center focus:ring-amber-500 focus:border-amber-500"
-              placeholder="Año"
-            >
-          </div>
+    <div class="flex flex-col items-center justify-center p-6 border-l-2 border-amber-200 text-center bg-amber-100/50">
+      <h1 class="text-2xl font-normal text-amber-950 mb-4">
+        Holaaa <span class="font-bold italic">{{ persona.nombre }} {{ persona.apaterno }} {{ persona.amaterno }}</span>
+      </h1>
+
+      <p class="text-xl text-amber-900 mb-4">
+        Tienes <span class="font-bold">{{ persona.edad }}</span> años
+      </p>
+
+      <p class="text-lg text-amber-800 mb-4">
+        Tu signo zodiacal es:
+      </p>
+
+      <div class="flex items-center justify-center space-x-4">
+        <span class="text-lg font-medium text-amber-900">Es {{ persona.signo }}</span>
+        <div class="w-20 h-20 bg-amber-800 rounded-full flex items-center justify-center text-white shadow-lg text-3xl">
+          {{ persona.emoji }}
         </div>
-      </div>
-
-      <div class="mb-5">
-        <label class="block mb-2 text-sm font-medium text-amber-950">Sexo:</label>
-        <div class="flex items-center space-x-6">
-          <label class="flex items-center text-sm text-amber-900 cursor-pointer">
-            <input type="radio" value="Masculino" formControlName="sexo" class="w-4 h-4 text-amber-700 bg-white border-amber-300 focus:ring-amber-500 mr-2">
-            Masculino
-          </label>
-          <label class="flex items-center text-sm text-amber-900 cursor-pointer">
-            <input type="radio" value="Femenino" formControlName="sexo" class="w-4 h-4 text-amber-700 bg-white border-amber-300 focus:ring-amber-500 mr-2">
-            Femenino
-          </label>
-        </div>
-      </div>
-
-
-      <div class="flex justify-center mt-6">
-        <button
-          type="submit"
-          class="text-white bg-amber-700 border-2 border-amber-700 hover:bg-amber-800 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-sm text-sm px-6 py-2.5 shadow-sm"
-        >
-          imprimir
-        </button>
-      </div>
-
-    </form>
-  </div>
-
-  <div class="flex flex-col items-center justify-center p-6 border-l-2 border-amber-200 text-center bg-amber-100/50" *ngIf="resultadoMostrado">
-    <h1 class="text-2xl font-normal text-amber-950 mb-4">
-      Holaaa <span class="font-bold italic">{{ persona.nombre }} {{ persona.apaterno }} {{ persona.amaterno }}</span>
-    </h1>
-    
-    <p class="text-xl text-amber-900 mb-4">
-      Tienes <span class="font-bold">{{ persona.edad }}</span> años
-    </p>
-
-    <p class="text-lg text-amber-800 mb-4">
-      Tu signo zodiacal es:
-    </p>
-
-    <div class="flex items-center justify-center space-x-4">
-      <span class="text-lg font-medium text-amber-900">Es {{ persona.signo }}</span>
-      <div class="w-20 h-20 bg-amber-800 rounded-full flex items-center justify-center text-white shadow-lg text-3xl">
-        {{ persona.emoji }}
       </div>
     </div>
+
+  </div>
+
+</div>
+
+
+<div class="max-w-4xl mx-auto p-6 bg-amber-50 rounded-sm shadow-md border border-amber-200" *ngIf="vistaActual === 'registros'">
+  
+  <div class="flex justify-between items-center mb-6 border-b border-amber-200 pb-4">
+    <h2 class="text-2xl font-bold text-amber-950">
+      Lista Completa de Registros del Zodiaco
+    </h2>
+   
+    <button
+      type="button"
+      (click)="vistaActual = 'formulario'"
+      class="text-white bg-amber-700 border-2 border-amber-700 hover:bg-amber-800 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-sm text-sm px-5 py-2 shadow-sm"
+    >
+      Regresar
+    </button>
+  </div>
+
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg border border-amber-200">
+    <table class="w-full text-sm text-left text-amber-900">
+      <thead class="text-xs text-amber-950 uppercase bg-amber-200">
+        <tr>
+          <th scope="col" class="px-6 py-3">Nombre Completo</th>
+          <th scope="col" class="px-6 py-3">Edad</th>
+          <th scope="col" class="px-6 py-3">Signo</th>
+          <th scope="col" class="px-6 py-3">Emoji</th>
+          <th scope="col" class="px-6 py-3">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of personas; let i = index" class="bg-white border-b border-amber-100 hover:bg-amber-50">
+          <td class="px-6 py-4 font-medium text-amber-950 whitespace-nowrap">
+            {{ item.nombre }} {{ item.apaterno }} {{ item.amaterno }}
+          </td>
+          <td class="px-6 py-4">{{ item.edad }}</td>
+          <td class="px-6 py-4">{{ item.signo }}</td>
+          <td class="px-6 py-4 text-2xl">{{ item.emoji }}</td>
+          <td class="px-6 py-4">
+            <div class="flex gap-2">
+              <button
+                type="button"
+                class="px-3 py-1.5 text-xs font-medium text-white bg-amber-700 rounded hover:bg-amber-800"
+                (click)="editarPersona(i)"
+              >
+                Editar
+              </button>
+              <button
+                type="button"
+                class="px-3 py-1.5 text-xs font-medium text-white bg-red-600 rounded hover:bg-red-700"
+                (click)="eliminarPersona(i)"
+              >
+                Eliminar
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  
+  <div *ngIf="personas.length === 0" class="p-4 mt-4 text-sm text-amber-900 rounded-lg bg-amber-100 border border-amber-200 text-center" role="alert">
+    <span class="font-medium">Información:</span> No hay registros guardados en el almacenamiento local.
   </div>
 
 </div>
